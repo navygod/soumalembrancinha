@@ -1,0 +1,2202 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR">
+<head>
+  <script src="config.js"></script>
+<script>
+  const PRODUCTS_SHEET_URL = window.CONFIG.PRODUCTS_SHEET_URL;
+  const DEPO_SHEET_URL = window.CONFIG.DEPO_SHEET_URL;
+</script>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Lembrancinhas personalizadas para casamentos, aniversários e eventos especiais em Marília-SP." />
+    <meta property="og:title" content="Só uma Lembrancinha – Personalizados Inesquecíveis" />
+    <meta property="og:description" content="Lembrancinhas para casamentos, aniversários e eventos especiais." />
+    <meta property="og:image" content="https://i.imgur.com/lsAzQtN.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+<title>Só uma Lembrancinha - Marília-SP</title>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet"/>
+<style>
+        :root {
+            --rosa: #f9a7c2;
+            --azul: #81d4ef;
+            --amarelo: #fff5a5;
+            --rosa-escuro: #e06a95;
+            --azul-escuro: #56aad0;
+            --texto: #555;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Helvetica', 'Arial', sans-serif;
+        }
+        
+        body {
+            background-color: #fff;
+            color: var(--texto);
+            line-height: 1.6;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        header {
+            background: linear-gradient(to right, var(--rosa), var(--azul));
+            padding: 15px 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+        }
+        
+        .logo img {
+            height: 200px;
+            margin-right: 10px;
+        }
+        
+        .logo h1 {
+            color: white;
+            font-size: 1.5rem;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 25px;
+        }
+        
+        nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: clamp(1rem, 2vw, 1.3rem); /* Tamanho responsivo */
+    padding: 0.5rem 0.8rem;
+    transition: all 0.3s ease;
+    position: relative;
+}
+        
+        nav ul li a:hover {
+            color: var(--amarelo);
+        }
+        
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background: var(--amarelo);
+            bottom: -5px;
+            left: 0;
+            transition: width 0.3s;
+        }
+        
+        nav ul li a:hover::after {
+            width: 100%;
+        }
+        
+        .mobile-menu {
+            display: none;
+            font-size: 1.5rem;
+            color: white;
+            cursor: pointer;
+        }
+        
+        main {
+            margin-top: 90px;
+        }
+
+        /* Correção para âncoras: reserva espaço para o header fixo ao rolar até #produtos */
+        #produtos {
+            scroll-margin-top: 230px;
+        }
+
+        
+
+        
+        
+        .hero {
+    background-image: url('/api/placeholder/1200/500');
+    background-attachment: fixed;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 600px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
+}
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255,255,255,0.7);
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            padding: 40px;
+        }
+        
+        .hero h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: var(--rosa-escuro);
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+        }
+        
+        .btn {
+            padding: 12px 25px;
+            background-color: var(--rosa);
+            color: white;
+            border: none;
+            border-radius: 25px;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        
+        .btn:hover {
+            background-color: var(--rosa-escuro);
+            transform: translateY(-2px);
+        }
+        
+        .section-title {
+            text-align: center;
+            margin: 60px 0 30px;
+            position: relative;
+        }
+        
+        .section-title h2 {
+            font-size: 2rem;
+            color: var(--rosa-escuro);
+            display: inline-block;
+            padding: 0 15px;
+            background: #fff;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            width: 60%;
+            height: 1px;
+            background: #ddd;
+            z-index: 0;
+        }
+        
+        .categories {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+        
+        .category {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            width: 200px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            text-decoration: none;
+            color: var(--texto);
+        }
+        
+        .category:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 20px rgba(0,0,0,0.1);
+        }
+        
+        .category img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        
+        .category-content {
+            padding: 15px;
+            text-align: center;
+        }
+        
+        .category h3 {
+            margin-bottom: 10px;
+            color: var(--rosa-escuro);
+        }
+        
+        .products {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 30px;
+            margin: 50px 0;
+        }
+        
+        .product {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+        }
+        
+        .product:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+        
+        .product-img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+        
+        .product-content {
+            padding: 20px;
+        }
+        
+        .product h3 {
+            margin-bottom: 10px;
+            color: var(--rosa-escuro);
+        }
+        
+        .product p {
+            margin-bottom: 15px;
+            font-size: 0.9rem;
+            color: #777;
+        }
+        
+        .product .price {
+            font-weight: 700;
+            color: var(--azul-escuro);
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+            display: block;
+        }
+        
+        .whatsapp-btn {
+            background-color: #25D366;
+            color: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .whatsapp-btn:hover {
+            background-color: #128C7E;
+        }
+        
+        .about {
+            background-color: var(--amarelo);
+            padding: 80px 0;
+            margin: 50px 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .about::before {
+            content: '';
+            position: absolute;
+            top: -50px;
+            left: 0;
+            width: 100%;
+            height: 50px;
+            background: linear-gradient(to bottom right, transparent 49%, var(--amarelo) 50%);
+        }
+        
+        .about::after {
+            content: '';
+            position: absolute;
+            bottom: -50px;
+            left: 0;
+            width: 100%;
+            height: 50px;
+            background: linear-gradient(to top right, transparent 49%, var(--amarelo) 50%);
+        }
+        
+        .about-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 50px;
+        }
+        
+        .about-text {
+            flex: 1;
+        }
+        
+        .about h2 {
+            color: var(--rosa-escuro);
+            margin-bottom: 20px;
+            font-size: 2rem;
+        }
+        
+        .about p {
+            margin-bottom: 20px;
+            line-height: 1.8;
+        }
+        
+        .about-image {
+            flex: 1;
+            text-align: center;
+        }
+        
+        .about-image img {
+            max-width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        .testimonials {
+            padding: 50px 0;
+            background-color: #f9f9f9;
+        }
+        
+        .testimonial-slider {
+            width: 100%;
+            overflow: hidden;
+        }
+        
+        .testimonial-slides {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+        
+        .testimonial-slide {
+            min-width: 100%;
+            padding: 20px;
+        }
+        
+        .testimonial {
+            background: white;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .testimonial p {
+            font-style: italic;
+            margin-bottom: 20px;
+            position: relative;
+        }
+        
+        .testimonial p::before, .testimonial p::after {
+            content: '"';
+            font-size: 2rem;
+            color: var(--rosa);
+            position: absolute;
+        }
+        
+        .testimonial p::before {
+            top: -10px;
+            left: -15px;
+        }
+        
+        .testimonial p::after {
+            bottom: -10px;
+            right: -15px;
+        }
+        
+        .client-info {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 20px;
+        }
+        
+        .client-img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-right: 15px;
+        }
+        
+        .client-name {
+            font-weight: 600;
+            color: var(--azul-escuro);
+        }
+        
+        .slider-controls {
+            display: flex;
+            justify-content: center;
+            margin-top: 30px;
+            gap: 10px;
+        }
+        
+        .slider-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: #ddd;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        
+        .slider-dot.active {
+            background-color: var(--rosa);
+        }
+        
+        .contact {
+            padding: 80px 0;
+        }
+        
+        .contact-content {
+            display: flex;
+            justify-content: space-between;
+            gap: 50px;
+        }
+        
+        .contact-info {
+            flex: 1;
+        }
+        
+        .contact-info h3 {
+            color: var(--rosa-escuro);
+            margin-bottom: 20px;
+        }
+        
+        .contact-detail {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
+        .contact-icon {
+            width: 40px;
+            height: 40px;
+            background-color: var(--azul);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+        }
+        
+        .contact-form {
+            flex: 1;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        .contact-form h3 {
+            color: var(--rosa-escuro);
+            margin-bottom: 20px;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 600;
+            color: var(--texto);
+        }
+        
+        .form-group input, .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+        
+        .form-group textarea {
+            height: 120px;
+            resize: vertical;
+        }
+        
+        /* Estilos do Rodapé */
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 50px 0 20px;
+        }
+        
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+        
+        .footer-section {
+            flex: 1;
+            min-width: 250px;
+        }
+        
+        .footer-section h3 {
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-section h3::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            height: 2px;
+            width: 50px;
+            background: var(--amarelo);
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .footer-links a:hover {
+            color: var(--amarelo);
+            padding-left: 5px;
+        }
+        
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-icons a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .social-icons a:hover {
+            background: var(--amarelo);
+            color: var(--rosa-escuro);
+            transform: translateY(-3px);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .whatsapp-float {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #25D366;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            text-align: center;
+            font-size: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            z-index: 100;
+            transition: all 0.3s ease;
+        }
+        
+        .whatsapp-float:hover {
+            background-color: #128C7E;
+            transform: scale(1.1);
+        }
+        
+        @media (max-width: 768px) {
+            .header-content {
+                position: relative;
+            }
+            
+            .mobile-menu {
+                display: block;
+            }
+            
+            nav {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: linear-gradient(to right, var(--rosa), var(--azul));
+                padding: 20px;
+                display: none;
+                box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+            }
+            
+            nav.active {
+                display: block;
+            }
+            
+            nav ul {
+                flex-direction: column;
+            }
+            
+            nav ul li {
+                margin: 10px 0;
+            }
+            
+            .about-content, .contact-content {
+                flex-direction: column;
+            }
+            
+            .footer-content {
+                flex-direction: column;
+            }
+        }
+        /* Estilos para os métodos de pagamento */
+.metodos-pagamento {
+    padding: 15px;
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+    margin: 8px 0;
+}
+
+.metodos-pagamento h4 {
+    margin-bottom: 10px;
+    color: var(--azul-escuro);
+}
+
+.metodos-lista {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.metodo-item {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.metodo-item:hover {
+    border-color: var(--rosa);
+}
+
+.metodo-item i {
+    margin-right: 10px;
+    color: var(--azul);
+}
+
+.metodo-item.selecionado {
+    background-color: #f0f8ff;
+    border-color: var(--azul);
+    font-weight: bold;
+}
+
+.metodo-item.selecionado i {
+    color: var(--azul-escuro);
+}
+    
+    /* Ajustando o espaçamento do rodapé do carrinho */
+    .carrinho-rodape {
+        padding-top: 10px;
+    }
+    .frete-container {
+    padding: 15px;
+    border-top: 1px solid #eee;
+    margin: 8px 0;
+}
+
+.frete-container h4 {
+    margin-bottom: 10px;
+    color: var(--azul-escuro);
+}
+
+.cep-input {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.cep-input input {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.cep-input button {
+    background-color: var(--rosa);
+    color: white;
+    border: none;
+    padding: 0 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.cep-input button:hover {
+    background-color: var(--rosa-escuro);
+}
+
+.frete-info {
+    margin-top: 10px;
+    padding: 10px;
+    background-color: #f9f9f9;
+    border-radius: 5px;
+    display: none;
+}
+
+.frete-info p {
+    margin: 5px 0;
+}
+    
+.lista-produtos-carrinho {
+    max-height: 300px;
+    overflow-y: auto;
+    padding-right: 10px;
+}
+
+    
+    /* Animação de entrada hero */
+    @keyframes heroBackgroundSlide {
+        0% { background-position: center 0px; }
+        100% { background-position: center 100px; }
+    }
+    @keyframes heroContentFade {
+        0% { opacity: 0; transform: scale(0.9); }
+        100% { opacity: 1; transform: scale(1); }
+    }
+    .hero.animate {
+        animation: heroBackgroundSlide 2s ease-out forwards;
+    }
+    .hero.animate .hero-content {
+        animation: heroContentFade 1.5s ease-out forwards;
+    }
+    /* Inicialmente ocultar o conteúdo para a animação */
+    .hero .hero-content {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+
+        
+/* === Botões do Carrossel === */
+.prev-btn, .next-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.5);
+  border: none;
+  color: #fff;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  font-size: 1.4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.2s ease;
+  z-index: 2;
+}
+.prev-btn:hover, .next-btn:hover {
+  background: rgba(0, 0, 0, 0.8);
+  transform: translateY(-50%) scale(1.1);
+}
+.prev-btn { left: 10px; }
+.next-btn { right: 10px; }
+
+#finalizar-pedido {
+    background-color: #ff0000 !important;
+    color: white;
+    border: none;
+    border-radius: 25px;
+    padding: 12px 25px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+#finalizar-pedido:hover {
+    background-color: #cc0000;
+    transform: scale(1.05);
+}
+
+
+/* === Compact card overrides === */
+.products {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 20px;
+    margin: 50px 0;
+}
+.product-img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+}
+.product-content {
+    padding: 15px;
+}
+.product h3 {
+    font-size: 1rem;
+    margin-bottom: 8px;
+    color: var(--rosa-escuro);
+}
+.product .price {
+    font-weight: 700;
+    color: var(--azul-escuro);
+    font-size: 1rem;
+    margin-bottom: 10px;
+    display: block;
+}
+.add-to-cart {
+    padding: 8px 12px !important;
+    font-size: 0.9rem !important;
+}
+
+/* === Zoom da imagem do produto === */
+.img-zoom-lupa {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: rgba(255,255,255,0.8);
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+  color: var(--rosa-escuro);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s;
+  z-index: 2;
+  cursor: pointer;
+}
+.product:hover .img-zoom-lupa {
+  opacity: 1;
+  pointer-events: auto;
+}
+.img-zoom-modal-bg {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+  animation: fadeInZoomBg 0.2s;
+}
+.img-zoom-modal-content {
+  position: relative;
+  display: inline-block;
+}
+.img-zoom-modal-img {
+  max-width: 90vw;
+  max-height: 80vh;
+  border-radius: 12px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.25);
+  background: #fff;
+  padding: 10px;
+  animation: zoomInImg 0.2s;
+  display: block;
+}
+.img-zoom-modal-close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 2rem;
+  color: #fff;
+  background: rgba(230, 106, 149, 0.9);
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 2100;
+  transition: color 0.2s, background 0.2s;
+}
+.img-zoom-modal-close:hover {
+  color: #fff;
+  background: var(--rosa-escuro);
+}
+
+.img-zoom-modal-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(230, 106, 149, 0.8);
+  border: none;
+  color: #fff;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  font-size: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 2100;
+  transition: background 0.2s;
+}
+.img-zoom-modal-nav:hover {
+  background: var(--rosa-escuro);
+}
+.img-zoom-modal-prev { left: -20px; }
+.img-zoom-modal-next { right: -20px; }
+
+#total-com-frete span:first-child {
+  color: #ff0000;
+  font-weight: bold;
+}
+
+</style>
+<style>
+.carrinho-rodape {
+    position: sticky !important;
+    bottom: 0;
+    background: white;
+    z-index: 1001;
+}
+</style>
+<script>
+function enablePaymentMethods() {
+  document.querySelectorAll('.metodo-item').forEach(item => {
+    item.style.pointerEvents = 'auto';
+    item.style.opacity = '1';
+  });
+}
+</script>
+<style>
+/* Ajuste do carrinho para caber modal e footer sticky */
+.carrinho-itens {
+    overflow-y: auto;
+    flex: 1 1 auto;
+    padding-bottom: 200px; /* espaço para o modal e botão */
+    max-height: calc(100% - 160px); /* header + rodapé */
+}
+#pix-modal {
+    display: none;
+    position: relative;
+    z-index: 1002;
+    background: #fff;
+    margin: 10px 15px;
+    padding: 10px;
+    border-top: 1px solid #eee;
+}
+</style><style>
+#pix-modal {
+    display: none;
+    position: relative;
+    z-index: 1000; /* abaixo da rodape */
+    background: #fff;
+    margin: 10px 15px;
+    padding: 10px;
+    border-top: 1px solid #eee;
+    max-height: 200px; /* limite de altura */
+    overflow-y: auto; /* scrollbar interno */
+}
+.carrinho-rodape {
+    position: sticky !important;
+    bottom: 0;
+    background: white;
+    z-index: 1001; /* acima do pix-modal */
+}
+.carrinho-container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+.carrinho-itens {
+    overflow-y: auto;
+    flex: 1 1 auto;
+    padding-bottom: 0; /* remoção espaço extra */
+}
+</style><style>
+#pix-modal {
+    max-height: 200px;
+    overflow-y: auto;
+    margin: 10px 0;
+    padding: 10px;
+    background: #fff;
+    border-top: 1px solid #ddd;
+}
+</style><style>
+/* Expand cart height and make modal visible */
+.carrinho-container.aberto {
+    height: 90vh !important;
+    max-height: 90vh !important;
+    overflow: auto !important;
+}
+.carrinho-itens {
+    overflow-y: auto;
+    max-height: calc(90vh - 200px);
+}
+#pix-modal {
+    display: none;
+    background: #fff;
+    padding: 15px;
+    border-top: 1px solid #ddd;
+    margin: 10px 15px;
+    max-height: none;
+    overflow: visible;
+}
+.carrinho-rodape {
+    position: sticky;
+    bottom: 0;
+    background: white;
+    z-index: 1002;
+}
+</style></head>
+<body>
+<header>
+<div class="container header-content">
+<a class="logo" href="#">
+<img alt="Só uma Lembrancinha Logo" src="https://i.imgur.com/lsAzQtN.png"/>
+<h1>Só uma Lembrancinha</h1>
+</a>
+<div class="mobile-menu">
+<i class="fas fa-bars"></i>
+</div>
+<nav>
+<ul>
+<li><a href="#">Início</a></li>
+<li><a href="#produtos">Produtos</a></li>
+<li><a href="#sobre">Quem Somos</a></li>
+<li><a href="#depoimentos">Depoimentos</a></li>
+<li><a href="https://api.whatsapp.com/send/?phone=5514996950657&amp;text&amp;type=phone_number&amp;app_absent=0">Contato</a></li>
+</ul>
+</nav>
+</div>
+</header>
+<main>
+<section class="hero">
+<div class="hero-content">
+<h2>O detalhe que transforma seu momento em inesquecível!</h2>
+<p>Lembrancinhas personalizadas para casamentos, aniversários e ocasiões especiais</p>
+<a class="btn" href="#produtos">Ver Produtos</a>
+</div>
+</section>
+<div class="container" id="produtos">
+<div class="section-title">
+<h2>Produtos</h2>
+</div>
+<div class="products" id="products"></div>
+</div>
+<div id="sobre" style="display:block; height:230px; margin-top:-230px; visibility:hidden;"></div>
+<section class="about">
+<div class="container">
+<div class="about-content">
+<div class="about-text">
+<h2>Quem Somos</h2>
+<p>Somos apaixonados por transformar momentos simples em lembranças inesquecíveis. Trabalhamos com carinho e dedicação, criando lembrancinhas personalizadas que encantam e surpreendem em cada detalhe.</p>
+<p>Na "Só uma Lembrancinha", cada produto é criado com atenção especial para cada cliente. Entendemos que cada ocasião é única e merece ser celebrada de forma especial.</p>
+<p>Estamos em Marília-SP, levando amor em forma de presentes para todo o Brasil.</p>
+</div>
+<div class="about-image">
+<img alt="Nossa Loja" src="https://i.imgur.com/lsAzQtN.png"/>
+</div>
+</div>
+</div>
+</section>
+<div id="depoimentos" style="display:block; height:230px; margin-top:-230px; visibility:hidden;"></div>
+<section class="testimonials">
+<div class="container">
+<div class="section-title">
+<h2>Depoimentos</h2>
+</div>
+<div class="testimonial-slider">
+<!-- container vazio; será preenchido pelo JS -->
+<div class="testimonial-slides"></div>
+</div>
+</div>
+</section>
+<!-- SCRIPT DEPOIMENTOS (busca CSV e cicla a cada 10s) -->
+<script>
+function copiarChavePix() {
+    const input = document.getElementById("chave-pix");
+    input.select();
+    input.setSelectionRange(0, 99999);
+    document.execCommand("copy");
+    alert("Chave PIX copiada com sucesso!");
+}
+</script>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const csvUrlDepo = DEPO_SHEET_URL;
+      const slideContainer = document.querySelector('.testimonial-slides');
+      let depoimentos = [];
+      let idx = 0;
+
+      function parseCSV(text) {
+  const linhas = text.trim().split('\n');
+  linhas.shift(); // descarta o cabeçalho
+  linhas.forEach(l => {
+    const cols = l
+      .split(/,(?=(?:(?:[^"]*"){2})*[^"]*$)/)
+      .map(c => c.replace(/^"|"$/g, '').trim());
+    depoimentos.push({
+      cliente: cols[0],
+      texto:   cols[1].replace(/"/g, '') // Remove todas as aspas duplas do depoimento
+      });
+  });
+}
+
+
+      function render(i) {
+        const d = depoimentos[i];
+        slideContainer.innerHTML = `
+          <div class="testimonial-slide">
+            <div class="testimonial">
+              <p>${d.texto}</p>
+              <div class="client-info">
+              <div class="client-name">${d.cliente}</div>
+              </div>
+            </div>
+          </div>
+        `;
+      }
+
+      fetch(csvUrlDepo)
+        .then(r => r.text())
+        .then(txt => {
+          parseCSV(txt);
+          if (!depoimentos.length) return;
+          render(0);
+          setInterval(() => {
+            idx = (idx + 1) % depoimentos.length;
+            render(idx);
+          }, 10000);
+        })
+        .catch(err => console.error('Erro ao carregar depoimentos:', err));
+    });
+  </script>
+</main>
+<!-- Rodapé inserido -->
+<footer>
+<div class="container">
+<div class="footer-content">
+<div class="footer-section">
+<h3>Sobre Nós</h3>
+<p>Transformamos momentos especiais em lembranças inesquecíveis com nossos produtos personalizados.</p>
+</div>
+<div class="footer-section">
+<h3>Links Rápidos</h3>
+<ul class="footer-links">
+<li><a href="#">Início</a></li>
+<li><a href="#produtos">Produtos</a></li>
+<li><a href="#sobre">Quem Somos</a></li>
+<li><a href="https://api.whatsapp.com/send/?phone=5514996950657&amp;text&amp;type=phone_number&amp;app_absent=0">Contato</a></li>
+</ul>
+</div>
+<div class="footer-section">
+<h3>Contato</h3>
+<p><i class="fas fa-map-marker-alt"></i> Marília, SP</p>
+<a href="https://api.whatsapp.com/send/?phone=5514996950657&amp;text&amp;type=phone_number&amp;app_absent=0">(14) 99695-0657</a>
+<p><i class="fas fa-envelope"></i> soumalembrancinhamr@gmail.com</p>
+<div class="social-icons">
+<a href="https://www.instagram.com/soumalembrancinha_marilia/" target="_blank"><i class="fab fa-instagram"></i></a>
+<!--<a href="#"><i class="fab fa-facebook"></i></a>Qundo tiver facebook, linkar.--> 
+<a href="https://wa.me/5514996950657"><i class="fab fa-whatsapp"></i></a>
+</div>
+</div>
+</div>
+
+    
+<div class="copyright">
+<p>© 2025 Só uma lembrancinha. Todos os direitos reservados.</p>
+</div>
+<div class="copyright">
+    <p>Desenvolvido por: WebDevAnalytics</p></a>
+    <a href="https://www.instagram.com/web.devanalytics/" target="_blank" rel="noopener">
+    <img src="https://i.imgur.com/nE7bFpV.jpeg" alt="Imagem 3" style="max-width:120px;margin:0 10px;display:inline-block;vertical-align:middle;"/></a>
+</div>
+<div style="text-align: center; margin: 20px 0;">
+    <a href="https://trust-center.netlify-corp.com/" target="_blank" rel="noopener">
+    <img src="https://i.imgur.com/8hs5bWr.png" alt="Imagem 1" style="max-width:120px;margin:0 10px;display:inline-block;vertical-align:middle;"/>
+    <img src="https://i.imgur.com/CMMOPTG.png" alt="Imagem 2" style="max-width:120px;margin:0 10px;display:inline-block;vertical-align:middle;"/>
+    </a>
+</div>
+<p style="text-align: center; font-size: 0.7rem; color: #666; max-width: 800px; margin: 0 auto 20px; line-height: 1.4; padding: 0 15px;">
+    Os preços anunciados neste site ou via e-mail promocional podem ser alterados sem prévio aviso. A So Uma Lembrancinha não é responsável por erros descritivos. As fotos contidas nesta página são meramente ilustrativas do produto e podem variar de acordo com o fornecedor/lote do fabricante.
+</p>
+</footer>
+<!-- Botão WhatsApp -->
+<a class="whatsapp-float" href="https://wa.me/5514996950657?text=Olá,%20gostaria%20de%20fazer%20um%20pedido!">
+<i class="fab fa-whatsapp"></i>
+</a>
+<script>
+        // Menu mobile
+        document.querySelector('.mobile-menu').addEventListener('click', function() {
+            document.querySelector('nav').classList.toggle('active');
+        });
+    </script>
+<!-- HTML do Carrinho -->
+<div class="carrinho-container" id="carrinho">
+<div class="carrinho-header">
+<h3>Meu Carrinho</h3>
+<button class="fechar-btn" id="fechar-carrinho"><i class="fas fa-times"></i></button>
+</div>
+<div class="carrinho-itens" id="carrinho-itens">
+<!-- Itens do carrinho serão adicionados aqui -->
+</div>
+<!-- Nova seção de métodos de pagamento -->
+<div class="metodos-pagamento">
+<h4>MÉTODOS DE PAGAMENTO</h4>
+<div class="metodos-lista">
+<label class="metodo-item" data-metodo="pix">
+<input name="metodo-pagamento" style="display: none;" type="radio" value="pix"/>
+<i class="fas fa-qrcode"></i>
+<span>PIX (5% de desconto)</span>
+</label>
+<label class="metodo-item" data-metodo="cartao">
+<input name="metodo-pagamento" style="display: none;" type="radio" value="cartao"/>
+<i class="fas fa-credit-card"></i>
+<span>CARTÃO</span>
+</label>
+<label class="metodo-item" data-metodo="dinheiro">
+<input name="metodo-pagamento" style="display: none;" type="radio" value="dinheiro"/>
+<i class="fas fa-money-bill-wave"></i>
+<span>DINHEIRO (5% de desconto)</span>
+</label>
+</div>
+</div>
+<!-- Seção de frete movida para baixo do total -->
+<div class="frete-container">
+<h4>INSIRA SEU CEP</h4>
+<div class="cep-input">
+<!--<input id="cep-destino" maxlength="9" placeholder="Digite seu CEP" type="text"/>--> VERSÃO DE TESTES.
+</div>
+<div class="frete-info" id="frete-info">
+<p>Distância: <span id="distancia-km">0</span> km</p>
+<p>Frete: <span id="valor-frete">R$ 0,00</span></p>
+</div>
+</div>
+<div id="pix-modal" style="display:none;padding:15px;text-align:center;">
+<h4>Pagamento via PIX</h4>
+<p>Escaneie o QR Code abaixo ou copie a chave PIX:</p>
+<img alt="QR Code PIX" src="https://i.imgur.com/1Po3CUe.png" style="width:200px;margin-bottom:10px;"/><br/>
+<input id="chave-pix" readonly="" style="padding:10px;width:80%;border-radius:8px;text-align:center;margin-bottom:10px;" type="text" value="pix@soumalembrancinha.com"/><br/>
+<button onclick="copiarChavePix()" style="background-color:#81d4ef;color:white;padding:10px 20px;border:none;border-radius:25px;cursor:pointer;">Copiar chave PIX</button><br/><br/>
+<a href="https://wa.me/5514996950657?text=Olá! Enviei o comprovante do pagamento via PIX." style="background-color:#25D366;color:white;padding:10px 20px;border:none;border-radius:25px;text-decoration:none;" target="_blank">Enviar comprovante via WhatsApp</a>
+</div><div class="carrinho-rodape">
+<div class="carrinho-total">
+<span>Total:</span>
+<span id="carrinho-valor-total">R$ 0,00</span>
+</div>
+<div id="total-com-frete" style="display: none;">
+<span>Total com Frete:</span>
+<span id="valor-total-com-frete">R$ 0,00</span>
+</div>
+<button class="btn" id="finalizar-pedido">Finalizar Pedido</button>
+</div>
+</div>
+<!-- Botão para abrir o carrinho -->
+<button class="cart-float" id="abrir-carrinho">
+<i class="fas fa-shopping-cart"></i>
+<span id="contador-itens">0</span>
+</button>
+<!-- Adicione este estilo na tag <style> no head -->
+<style>
+    /* Estilos do Carrinho */
+    .carrinho-container {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: min(420px, 90vw);
+        height: 100%;
+        background-color: white;
+        box-shadow: -2px 0 10px rgba(0,0,0,0.2);
+        z-index: 1001;
+        transition: right 0.3s ease;
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .carrinho-container.aberto {
+        right: 0;
+    }
+    
+    .carrinho-header {
+    padding: 15px;
+    background: linear-gradient(to right, var(--rosa), var(--azul));
+    color: white;
+    display: flex;
+    justify-content: center; /* Centraliza o título */
+    align-items: center;
+    position: relative; /* Importante para o posicionamento absoluto do botão */
+    height: 60px; /* Altura fixa para garantir espaço suficiente */
+}
+
+.carrinho-header h3 {
+    margin: 0; /* Remove margens padrão do título */
+}
+
+.fechar-btn {
+    background-color: #ff3b3b;
+    border: none;
+    color: white;
+    font-size: 1.2rem;
+    cursor: pointer;
+    position: absolute;
+    left: 15px; /* Mudou de right para left */
+    top: 50%;
+    transform: translateY(-50%);
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+    
+    .fechar-btn:hover {
+        background-color: #e62e2e;
+    }
+    
+    .carrinho-itens {
+    flex: 1 1 auto;
+    min-height: 0;
+    overflow-y: auto;
+    padding: 15px;
+}
+    
+    .carrinho-item {
+        display: flex;
+        margin-bottom: 15px;
+        padding-bottom: 15px;
+        border-bottom: 1px solid #eee;
+    }
+    
+    .carrinho-item-info {
+        flex: 1;
+    }
+    
+    .carrinho-item-nome {
+    word-break: break-word;
+        font-weight: 600;
+        margin-bottom: 5px;
+    }
+
+    /* Descrição completa do produto */
+    .carrinho-item-descricao {
+        font-size: 0.85rem;
+        color: #777;
+        margin-bottom: 8px;
+        word-break: break-word;
+    }
+    
+    .carrinho-item-preco {
+        color: var(--azul-escuro);
+    }
+    
+    .carrinho-item-qtd {
+        display: flex;
+        align-items: center;
+        margin: 10px 0;
+    }
+    
+    .carrinho-item-qtd button {
+        background: var(--rosa-escuro);
+        color: white;
+        border: none;
+        width: 25px;
+        height: 25px;
+        border-radius: 50%;
+        font-size: 1rem;
+        cursor: pointer;
+    }
+    
+    .carrinho-item-qtd span {
+        margin: 0 10px;
+    }
+    
+    .remover-item {
+        color: #ff6b6b;
+        background: none;
+        border: none;
+        cursor: pointer;
+        font-size: 0.8rem;
+    }
+    
+    .carrinho-rodape {
+        padding: 15px;
+        background-color: #f9f9f9;
+        border-top: 1px solid #eee;
+    }
+    
+    .carrinho-total {
+        display: flex;
+        justify-content: space-between;
+        font-weight: 600;
+        margin-bottom: 15px;
+    }
+    
+    .cart-float {
+    position: fixed;
+    top: 20px; /* Alterado de bottom: 90px para top: 20px */
+    right: 20px;
+    background-color: var(--rosa-escuro);
+    color: white;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    text-align: center;
+    font-size: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    z-index: 1002; /* Aumentado para garantir que fique acima do header fixo */
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+}
+    
+    .cart-float:hover {
+        background-color: var(--rosa);
+        transform: scale(1.1);
+    }
+    
+    #contador-itens {
+        position: absolute;
+        top: -5px;
+        right: -5px;
+        background-color: var(--azul-escuro);
+        color: white;
+        width: 24px;
+        height: 24px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 12px;
+        font-weight: bold;
+    }
+    
+    /* Modificar os botões de compra para adicionar ao carrinho */
+    .add-to-cart {
+        background-color: #ff0000;
+        color: white;
+        padding: 10px 15px;
+        border-radius: 5px;
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        border: none;
+        cursor: pointer;
+    }
+    
+    .add-to-cart:hover {
+        background-color: var(--rosa-escuro);
+    }
+
+.lista-produtos-carrinho {
+    max-height: 300px;
+    overflow-y: auto;
+    padding-right: 10px;
+}
+
+    
+#finalizar-pedido {
+    background-color: #ff0000 !important;
+    color: white;
+    border: none;
+    border-radius: 25px;
+    padding: 12px 25px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+#finalizar-pedido:hover {
+    background-color: #cc0000;
+    transform: scale(1.05);
+}
+
+</style>
+<!-- Adicione este script no final do body -->
+<script>
+    // Carrinho de compras
+let carrinho = [];
+let metodoPagamento = null;
+let valorFrete = 0;
+
+// Função para formatar preço
+function formatarPreco(preco) {
+    return 'R$ ' + preco.toFixed(2).replace('.', ',');
+}
+
+// Função para converter preço de string para número
+function converterPreco(precoString) {
+    return parseFloat(precoString.replace('R$ ', '').replace(',', '.'));
+}
+
+// Função para calcular o total com desconto
+function calcularTotalComDesconto(valorTotal) {
+    if (metodoPagamento === 'pix' || metodoPagamento === 'dinheiro') {
+        return valorTotal * 0.95; // 5% de desconto
+    }
+    return valorTotal;
+}
+
+// Função auxiliar para obter o nome completo do método de pagamento
+function getNomeMetodoPagamento(metodo) {
+    switch(metodo) {
+        case 'pix': return 'PIX';
+        case 'cartao': return 'Cartão de Crédito/Débito';
+        case 'dinheiro': return 'Dinheiro';
+        default: return '';
+    }
+}
+
+// Função para adicionar produto ao carrinho
+function adicionarAoCarrinho(nome, preco, id, descricao, foto) {
+    const precoNum = converterPreco(preco);
+    
+    // Verifica se o produto já está no carrinho
+    const itemExistente = carrinho.find(item => item.id === id);
+    
+    if (itemExistente) {
+        itemExistente.quantidade += 1;
+    } else {
+        carrinho.push({
+            descricao: descricao,
+            id: id,
+            nome: nome,
+            preco: precoNum,
+            quantidade: 1,
+            foto: foto
+        });
+    }
+    
+    // Atualiza o carrinho
+    atualizarCarrinho();
+    
+    // Mostra notificação
+    alert(`${nome} adicionado ao carrinho!`);
+}
+
+// Função para remover item do carrinho
+function removerDoCarrinho(id) {
+    carrinho = carrinho.filter(item => item.id !== id);
+    atualizarCarrinho();
+}
+
+// Função para aumentar quantidade do item
+function aumentarQuantidade(id) {
+    const item = carrinho.find(item => item.id === id);
+    if (item) {
+        item.quantidade += 1;
+        atualizarCarrinho();
+    }
+}
+
+// Função para diminuir quantidade do item
+function diminuirQuantidade(id) {
+    const item = carrinho.find(item => item.id === id);
+    if (item) {
+        item.quantidade -= 1;
+        if (item.quantidade <= 0) {
+            removerDoCarrinho(id);
+        } else {
+            atualizarCarrinho();
+        }
+    }
+}
+
+// Função para calcular frete (simulação)
+function calcularFrete() {
+    const cep = document.getElementById('cep-destino').value;
+    
+    if (!cep || cep.length < 8) {
+        alert('Por favor, digite um CEP válido!');
+        return;
+    }
+    // Substituir o evento de click por input:
+
+document.getElementById('cep-destino').addEventListener('input', function() {
+    if (this.value.length >= 8) {
+        calcularFrete();
+        enablePaymentMethods();
+    }
+});
+
+
+    
+    // Simulação de cálculo de frete
+    const distancia = Math.floor(Math.random() * 50) + 5; // Entre 5 e 55 km
+    valorFrete = distancia * 0.5; // R$ 0,50 por km
+    
+    // Exibe as informações do frete
+    document.getElementById('distancia-km').textContent = distancia;
+    document.getElementById('valor-frete').textContent = formatarPreco(valorFrete);
+    document.getElementById('frete-info').style.display = 'block';
+    
+    // Atualiza o total com frete
+    atualizarTotalComFrete();
+}
+
+// Função para atualizar o total com frete
+function atualizarTotalComFrete() {
+    const valorTotal = carrinho.reduce((total, item) => total + (item.preco * item.quantidade), 0);
+    const valorFinal = calcularTotalComDesconto(valorTotal);
+    const totalComFrete = valorFinal + valorFrete;
+    
+    document.getElementById('total-com-frete').style.display = 'block';
+    document.getElementById('valor-total-com-frete').textContent = formatarPreco(totalComFrete);
+}
+
+// Função para atualizar o carrinho
+function atualizarCarrinho() {
+    const carrinhoItens = document.getElementById('carrinho-itens');
+    const contadorItens = document.getElementById('contador-itens');
+    const carrinhoValorTotal = document.getElementById('carrinho-valor-total');
+    
+    // Limpa o conteúdo atual
+    carrinhoItens.innerHTML = '';
+    
+    // Verifica se o carrinho está vazio
+    if (carrinho.length === 0) {
+        carrinhoItens.innerHTML = '<p class="carrinho-vazio">Seu carrinho está vazio.</p>';
+        contadorItens.textContent = '0';
+        carrinhoValorTotal.textContent = 'R$ 0,00';
+        document.getElementById('total-com-frete').style.display = 'none';
+        document.getElementById('frete-info').style.display = 'none';
+        valorFrete = 0;
+        return;
+    }
+    
+    // Calcula o total de itens
+    const totalItens = carrinho.reduce((total, item) => total + item.quantidade, 0);
+    contadorItens.textContent = totalItens.toString();
+    
+    // Calcula o valor total
+    const valorTotal = carrinho.reduce((total, item) => total + (item.preco * item.quantidade), 0);
+    const valorFinal = calcularTotalComDesconto(valorTotal);
+    
+    // Mostra o valor original e o com desconto se aplicável
+    if (metodoPagamento === 'pix' || metodoPagamento === 'dinheiro') {
+        carrinhoValorTotal.innerHTML = `
+            <span style="text-decoration: line-through; color: #999; font-size: 0.9em;">
+                ${formatarPreco(valorTotal)}
+            </span><br>
+            ${formatarPreco(valorFinal)} <span style="color: green; font-size: 0.9em;">(5% de desconto)</span>
+        `;
+    } else {
+        carrinhoValorTotal.textContent = formatarPreco(valorFinal);
+    }
+    
+    // Atualiza o total com frete se houver frete calculado
+    if (valorFrete > 0) {
+        atualizarTotalComFrete();
+    } else {
+        document.getElementById('total-com-frete').style.display = 'none';
+    }
+    
+    // Adiciona os itens ao carrinho
+    carrinho.forEach(item => {
+        const itemElement = document.createElement('div');
+        itemElement.className = 'carrinho-item';
+        itemElement.innerHTML = `
+            <div class="carrinho-item-img" style="margin-right:10px;">
+                <img src="${item.foto || 'https://via.placeholder.com/60'}" alt="${item.nome}" style="width: 60px; height: 60px; object-fit: cover; border-radius: 5px;">
+            </div>
+            <div class="carrinho-item-info">
+                <div class="carrinho-item-nome">${item.nome}</div>
+                <div class="carrinho-item-cor" style="font-size:0.9em;color:#e06a95;">Cor: ${item.cor || 'Padrão'}</div>
+                <div class="carrinho-item-preco">${formatarPreco(item.preco)}</div>
+                <div class="carrinho-item-qtd">
+                    <button onclick="diminuirQuantidade('${item.identificadorUnico}')">-</button>
+                    <span>${item.quantidade}</span>
+                    <button onclick="aumentarQuantidade('${item.identificadorUnico}')">+</button>
+                </div>
+                <button class="remover-item" onclick="removerDoCarrinho('${item.identificadorUnico}')">Remover</button>
+            </div>
+        `;
+        carrinhoItens.appendChild(itemElement);
+    });
+}
+
+// Função para finalizar o pedido
+function finalizarPedido() {
+        if (carrinho.length === 0) {
+            alert('Seu carrinho está vazio!');
+            return;
+        }
+        
+        if (!metodoPagamento) {
+            alert('Por favor, selecione um método de pagamento!');
+            return;
+        }
+        
+        // Verifica se o frete foi calculado
+        const cep = document.getElementById('cep-destino').value;
+        if (!cep || cep.length < 8 || valorFrete === 0) {
+            alert('Por favor, calcule o frete antes de finalizar o pedido!');
+            document.getElementById('cep-destino').focus();
+            return;
+        }
+        
+        // Cria a mensagem para o WhatsApp
+        let mensagem = 'Olá! Gostaria de fazer o seguinte pedido:\n\n';
+        
+        carrinho.forEach(item => {
+            mensagem += `*${item.nome}* (${item.cor || 'Padrão'})\n`;
+            mensagem += `Quantidade: ${item.quantidade}\n`;
+            mensagem += `Valor unitário: ${formatarPreco(item.preco)}\n\n`;
+        });
+        
+        const valorTotal = carrinho.reduce((total, item) => total + (item.preco * item.quantidade), 0);
+        const valorFinal = calcularTotalComDesconto(valorTotal);
+        
+        mensagem += `*Método de Pagamento:* ${getNomeMetodoPagamento(metodoPagamento)}\n`;
+        
+        if (metodoPagamento === 'pix' || metodoPagamento === 'dinheiro') {
+            mensagem += `*Valor Original:* ${formatarPreco(valorTotal)}\n`;
+            mensagem += `*Desconto (5%):* ${formatarPreco(valorTotal - valorFinal)}\n`;
+        }
+        
+        mensagem += `*Valor dos Produtos: ${formatarPreco(valorFinal)}*`;
+        mensagem += `\n*Frete:* ${formatarPreco(valorFrete)}`;
+        mensagem += `\n*Total com Frete: ${formatarPreco(valorFinal + valorFrete)}*`;
+        
+        // Encode para URL
+        const mensagemEncoded = encodeURIComponent(mensagem);
+        
+        // Redireciona para o WhatsApp
+        window.open(`https://wa.me/5514996950657?text=${mensagemEncoded}`, '_blank');
+    }
+
+// Quando o documento estiver carregado
+document.addEventListener('DOMContentLoaded', function() {
+    // Substitui os links de WhatsApp por botões de adicionar ao carrinho
+    const whatsappBtns = document.querySelectorAll('.whatsapp-btn');
+    
+    whatsappBtns.forEach((btn, index) => {
+        const product = btn.closest('.product');
+        const productDescription = product.querySelector('p').textContent;
+        const productName = product.querySelector('h3').textContent;
+        const productPrice = product.querySelector('.price').textContent;
+        const productId = 'prod_' + index;
+        
+        // Substitui o botão
+        const newBtn = document.createElement('button');
+        newBtn.className = 'add-to-cart';
+        newBtn.innerHTML = '<i class="fas fa-shopping-cart"></i> Comprar agora';
+        newBtn.onclick = function() {
+            adicionarAoCarrinho(productName, productPrice, productId, productDescription);
+        };
+        
+        btn.parentNode.replaceChild(newBtn, btn);
+    });
+    
+    // Configura os botões do carrinho
+    document.getElementById('abrir-carrinho').addEventListener('click', function() {
+        document.getElementById('carrinho').classList.add('aberto');
+    });
+    
+    document.getElementById('fechar-carrinho').addEventListener('click', function() {
+        document.getElementById('carrinho').classList.remove('aberto');
+    });
+    
+    document.getElementById('finalizar-pedido').addEventListener('click', finalizarPedido);
+    
+    // Configura o botão de calcular frete
+    
+    // Removido o click e adicionado o input para cálculo automático
+    
+document.getElementById('cep-destino').addEventListener('input', function() {
+    if (this.value.length >= 8) {
+        calcularFrete();
+        enablePaymentMethods();
+    }
+});
+
+    
+    // Configura os métodos de pagamento
+    const metodosItems = document.querySelectorAll('.metodo-item');
+    metodosItems.forEach(item => {
+        item.addEventListener('click', function() {
+            // Remove a seleção de todos os itens
+            metodosItems.forEach(i => i.classList.remove('selecionado'));
+            
+            // Adiciona a seleção ao item clicado
+            this.classList.add('selecionado');
+            
+            // Obtém o valor do método selecionado
+            metodoPagamento = this.querySelector('input').value;
+            
+            // Atualiza o carrinho para recalcular o total
+            atualizarCarrinho();
+        });
+    });
+    
+    // Inicializa o carrinho
+    atualizarCarrinho();
+});
+
+    // Animação de entrada do hero
+    document.addEventListener('DOMContentLoaded', function() {
+        const hero = document.querySelector('.hero');
+        // Adiciona classe para iniciar animação
+        hero.classList.add('animate');
+        // Remove a classe após a animação para manter estado final estático
+        });
+</script>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const container = document.getElementById('products');
+  fetch(`${PRODUCTS_SHEET_URL}?t=${Date.now()}`)
+    .then(res => res.text())
+    .then(text => {
+      const rows = text.trim().split('\n').slice(1);
+      rows.forEach((row, i) => {
+        const cols = row
+          .split(/,(?=(?:(?:[^"]*"){2})*[^"]*$)/)
+          .map(c =>
+  c
+    .replace(/^"|"$/g, '')   // remove aspas de contorno
+    .replace(/""/g, '"')     // converte "" → "
+    .trim()
+);
+
+
+        const descricao = cols[1];
+        const descricaoEsc = descricao.replace(/"/g, '&quot;');
+        const preco     = cols[3];
+
+        const cores = [];
+        for (let j = 4; j < cols.length; j += 2) {
+          const cor    = cols[j];
+          const imagem = cols[j + 1];
+          if (cor && imagem && imagem.startsWith('http')) {
+            cores.push({ nome: cor, img: imagem });
+          }
+        }
+
+                const div = document.createElement('div');
+                div.className = 'product';
+
+                let thumbsHTML = '<div class="thumbs" style="display:flex;gap:6px;margin:5px 0;">';
+                cores.forEach((cor, idx) => {
+                    thumbsHTML += `<img src="${cor.img}" class="thumb-img" data-cor="${cor.nome}" style="width:50px;height:50px;object-fit:cover;border-radius:6px;cursor:pointer;border:2px solid transparent;">`;
+                });
+                thumbsHTML += '</div>';
+
+                const selectCor = `<input type="hidden" class="cor-selecionada" value="${cores[0]?.nome || 'Padrão'}">`;
+
+                // Adiciona a lupa sobre a imagem principal
+                const lupaHTML = `<div class="img-zoom-lupa" title="Ver maior"><i class="fas fa-search-plus"></i></div>`;
+
+                div.innerHTML = `
+                    <div class="img-carousel-container" style="position:relative;">
+                        <img src="${cores[0]?.img || ''}" class="product-img main-img" alt="${descricao}" style="width:100%;height:150px;object-fit:cover;border-radius:10px;">
+                        ${lupaHTML}
+                    </div>
+                    <div class="product-content">
+                        <h3>${descricao}</h3>
+                        ${thumbsHTML}
+                        ${selectCor}
+                        <span class="price">${preco}</span>
+                        <button class="add-to-cart"
+                            onclick="adicionarAoCarrinhoComCor('${descricaoEsc}','${preco}','prod_${i}', this)">
+                            <i class="fas fa-shopping-cart"></i> Comprar agora (${cores[0]?.nome || 'Padrão'})
+                        </button>
+                    </div>
+                `;
+                container.appendChild(div);
+
+                const imgPrincipal = div.querySelector('.main-img');
+                const corInput = div.querySelector('.cor-selecionada');
+                const btn = div.querySelector('.add-to-cart');
+                const lupa = div.querySelector('.img-zoom-lupa');
+
+                // Função para abrir o modal de zoom
+                function abrirZoomModal(imgs, idxInicial = 0) {
+                    let idx = idxInicial;
+                    // Cria o fundo do modal
+                    const modalBg = document.createElement('div');
+                    modalBg.className = 'img-zoom-modal-bg';
+                    // Cria o container relativo para imagem e botões
+                    const modalContent = document.createElement('div');
+                    modalContent.className = 'img-zoom-modal-content';
+                    // Cria a imagem ampliada
+                    const imgZoom = document.createElement('img');
+                    imgZoom.className = 'img-zoom-modal-img';
+                    imgZoom.src = imgs[idx];
+                    imgZoom.alt = 'Zoom';
+                    // Cria o botão de fechar
+                    const btnClose = document.createElement('button');
+                    btnClose.className = 'img-zoom-modal-close';
+                    btnClose.innerHTML = '<i class="fas fa-times"></i>';
+                    // Cria botões de navegação
+                    const btnPrev = document.createElement('button');
+                    btnPrev.className = 'img-zoom-modal-nav img-zoom-modal-prev';
+                    btnPrev.innerHTML = '<i class="fas fa-chevron-left"></i>';
+                    const btnNext = document.createElement('button');
+                    btnNext.className = 'img-zoom-modal-nav img-zoom-modal-next';
+                    btnNext.innerHTML = '<i class="fas fa-chevron-right"></i>';
+                    // Função para atualizar imagem
+                    function atualizarImg() {
+                        imgZoom.src = imgs[idx];
+                    }
+                    // Eventos dos botões
+                    btnPrev.addEventListener('click', function(e) {
+                        e.stopPropagation();
+                        idx = (idx - 1 + imgs.length) % imgs.length;
+                        atualizarImg();
+                    });
+                    btnNext.addEventListener('click', function(e) {
+                        e.stopPropagation();
+                        idx = (idx + 1) % imgs.length;
+                        atualizarImg();
+                    });
+                    btnClose.addEventListener('click', function(e) {
+                        e.stopPropagation();
+                        modalBg.remove();
+                    });
+                    // Adiciona elementos ao modal
+                    modalContent.appendChild(imgZoom);
+                    if (imgs.length > 1) {
+                        modalContent.appendChild(btnPrev);
+                        modalContent.appendChild(btnNext);
+                    }
+                    modalContent.appendChild(btnClose);
+                    modalBg.appendChild(modalContent);
+                    document.body.appendChild(modalBg);
+                    // Fecha ao clicar fora da imagem
+                    modalBg.addEventListener('click', function(e) {
+                        if (e.target === modalBg) {
+                            modalBg.remove();
+                        }
+                    });
+                }
+
+                // Evento de clique na lupa
+                lupa.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    const imgs = cores.map(c => c.img);
+                    const idx = imgs.indexOf(imgPrincipal.src);
+                    abrirZoomModal(imgs, idx >= 0 ? idx : 0);
+                });
+                // Também permite clicar na imagem principal para abrir o zoom
+                imgPrincipal.addEventListener('click', function(e) {
+                    const imgs = cores.map(c => c.img);
+                    const idx = imgs.indexOf(imgPrincipal.src);
+                    abrirZoomModal(imgs, idx >= 0 ? idx : 0);
+                });
+
+                div.querySelectorAll('.thumb-img').forEach(t => {
+                    t.addEventListener('click', () => {
+                        imgPrincipal.src = t.src;
+                        corInput.value = t.dataset.cor;
+                        btn.innerHTML = `<i class=\"fas fa-shopping-cart\"></i> Comprar agora (${t.dataset.cor})`;
+                        div.querySelectorAll('.thumb-img').forEach(img => img.style.border = '2px solid transparent');
+                        t.style.border = '2px solid #e06a95';
+                    });
+                });
+            });
+        });
+});
+
+function adicionarAoCarrinhoComCor(nome, preco, id, btnEl) {
+    const precoNum = parseFloat(preco.replace('R$', '').replace(',', '.'));
+    const card = btnEl.closest('.product');
+    const cor = card.querySelector('.cor-selecionada')?.value || 'Padrão';
+    const foto = card.querySelector('.main-img')?.src;
+    const identificadorUnico = id + '|' + cor;
+
+    const itemExistente = carrinho.find(item => item.identificadorUnico === identificadorUnico);
+    if (itemExistente) {
+        itemExistente.quantidade += 1;
+    } else {
+        carrinho.push({
+            nome: nome,
+            preco: precoNum,
+            quantidade: 1,
+            id: id,
+            cor: cor,
+            foto: foto,
+            identificadorUnico: identificadorUnico
+        });
+    }
+
+    atualizarCarrinho();
+    alert(`${nome} (${cor}) adicionado ao carrinho!`);
+}
+
+function aumentarQuantidade(identificadorUnico) {
+    const item = carrinho.find(item => item.identificadorUnico === identificadorUnico);
+    if (item) {
+        item.quantidade += 1;
+        atualizarCarrinho();
+    }
+}
+
+function diminuirQuantidade(identificadorUnico) {
+    const item = carrinho.find(item => item.identificadorUnico === identificadorUnico);
+    if (item) {
+        item.quantidade -= 1;
+        if (item.quantidade <= 0) {
+            removerDoCarrinho(identificadorUnico);
+        } else {
+            atualizarCarrinho();
+        }
+    }
+}
+
+function removerDoCarrinho(identificadorUnico) {
+    carrinho = carrinho.filter(item => item.identificadorUnico !== identificadorUnico);
+    atualizarCarrinho();
+}
+</script><script>
+document.addEventListener('DOMContentLoaded', () => {
+  const metodoPix = document.querySelector('[data-metodo="pix"]');
+  if (metodoPix) {
+    metodoPix.addEventListener('click', () => {
+      document.getElementById('pix-modal').style.display = 'block';
+    });
+  }
+});
+</script><script>
+document.addEventListener('DOMContentLoaded', () => {
+    // Disable payment methods until CEP
+    document.querySelectorAll('.metodo-item').forEach(item => {
+        item.style.pointerEvents = 'none';
+        item.style.opacity = '0.6';
+    });
+});
+
+function enablePaymentMethods() {
+    document.querySelectorAll('.metodo-item').forEach(item => {
+        item.style.pointerEvents = 'auto';
+        item.style.opacity = '1';
+    });
+}
+
+// Hide PIX modal when selecting other methods
+document.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('.metodo-item').forEach(item => {
+        item.addEventListener('click', () => {
+            if (item.getAttribute('data-metodo') !== 'pix') {
+                document.getElementById('pix-modal').style.display = 'none';
+            }
+        });
+    });
+});
+
+</script>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    // Desabilita métodos até CEP
+    document.querySelectorAll('.metodo-item').forEach(item => {
+        item.style.pointerEvents = 'none';
+        item.style.opacity = '0.6';
+    });
+    // Evento CEP
+    document.getElementById('cep-destino').addEventListener('input', function() {
+        if (this.value.length >= 8) {
+            calcularFrete();
+            enablePaymentMethods();
+        }
+    });
+    
+    // Ocultar PIX modal em outros métodos
+    document.querySelectorAll('.metodo-item').forEach(item => {
+        item.addEventListener('click', () => {
+            if (item.getAttribute('data-metodo') !== 'pix') {
+                document.getElementById('pix-modal').style.display = 'none';
+            }
+        });
+    });
+    // Exibir PIX modal
+    const pixLabel = document.querySelector('[data-metodo="pix"]');
+    if (pixLabel) {
+      pixLabel.addEventListener('click', () => {
+        const pixModal = document.getElementById('pix-modal');
+        // exibe o modal
+        pixModal.style.display = 'block';
+        // faz o scroll suave até o modal dentro do carrinho
+        pixModal.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+    }
+});
+</script></body>
+</html>

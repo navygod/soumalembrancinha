@@ -1,0 +1,11 @@
+# variáveis de ambiente
+.env
+
+# arquivo de configuração com URLs — não versionado
+config.js
+
+# cache Python
+__pycache__/
+
+# dependências Node
+node_modules/
